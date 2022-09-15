@@ -1,12 +1,12 @@
 const path = require("path");
-const htmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "production",
-  entry: path.resolve(__dirname, "src/index.js"),
+  entry: { bundle: path.resolve(__dirname, "src/index.js") },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].js",
   },
   module: {
     rules: [
@@ -17,9 +17,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       title: "Learn Webpack",
       filename: "./index.html",
+      template: "./src/template.html",
     }),
   ],
 };
