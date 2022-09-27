@@ -6,7 +6,8 @@ module.exports = {
   entry: { bundle: path.resolve(__dirname, "src/index.js") },
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "[name].js",
+    filename: "[name].[contenthash].js",
+    clean: true,
   },
   module: {
     rules: [
